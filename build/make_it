@@ -1,0 +1,7 @@
+#! /bin/bash
+
+cmake ..
+make
+./src/bin_main
+
+exit
