@@ -16,6 +16,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build/src/CMakeFiles/GLEW.dir/DependInfo.cmake"
+  "/home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build/src/CMakeFiles/shaders.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

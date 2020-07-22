@@ -126,6 +126,21 @@ bin_main/fast:
 .PHONY : bin_main/fast
 
 # Convenience name for target.
+src/CMakeFiles/shaders.dir/rule:
+	cd /home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/shaders.dir/rule
+.PHONY : src/CMakeFiles/shaders.dir/rule
+
+# Convenience name for target.
+shaders: src/CMakeFiles/shaders.dir/rule
+
+.PHONY : shaders
+
+# fast build rule for target.
+shaders/fast:
+	cd /home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build && $(MAKE) -f src/CMakeFiles/shaders.dir/build.make src/CMakeFiles/shaders.dir/build
+.PHONY : shaders/fast
+
+# Convenience name for target.
 src/CMakeFiles/GLEW.dir/rule:
 	cd /home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/GLEW.dir/rule
 .PHONY : src/CMakeFiles/GLEW.dir/rule
@@ -194,6 +209,33 @@ main.cpp.s:
 	cd /home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build && $(MAKE) -f src/CMakeFiles/bin_main.dir/build.make src/CMakeFiles/bin_main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+shaders.o: shaders.cpp.o
+
+.PHONY : shaders.o
+
+# target to build an object file
+shaders.cpp.o:
+	cd /home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build && $(MAKE) -f src/CMakeFiles/shaders.dir/build.make src/CMakeFiles/shaders.dir/shaders.cpp.o
+.PHONY : shaders.cpp.o
+
+shaders.i: shaders.cpp.i
+
+.PHONY : shaders.i
+
+# target to preprocess a source file
+shaders.cpp.i:
+	cd /home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build && $(MAKE) -f src/CMakeFiles/shaders.dir/build.make src/CMakeFiles/shaders.dir/shaders.cpp.i
+.PHONY : shaders.cpp.i
+
+shaders.s: shaders.cpp.s
+
+.PHONY : shaders.s
+
+# target to generate assembly for a file
+shaders.cpp.s:
+	cd /home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build && $(MAKE) -f src/CMakeFiles/shaders.dir/build.make src/CMakeFiles/shaders.dir/shaders.cpp.s
+.PHONY : shaders.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -203,6 +245,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... bin_main"
+	@echo "... shaders"
 	@echo "... GLEW"
 	@echo "... glew.o"
 	@echo "... glew.i"
@@ -210,6 +253,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... shaders.o"
+	@echo "... shaders.i"
+	@echo "... shaders.s"
 .PHONY : help
 
 

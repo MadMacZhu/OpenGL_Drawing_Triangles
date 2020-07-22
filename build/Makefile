@@ -124,6 +124,19 @@ bin_main/fast:
 .PHONY : bin_main/fast
 
 #=============================================================================
+# Target rules for targets named shaders
+
+# Build rule for target.
+shaders: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 shaders
+.PHONY : shaders
+
+# fast build rule for target.
+shaders/fast:
+	$(MAKE) -f src/CMakeFiles/shaders.dir/build.make src/CMakeFiles/shaders.dir/build
+.PHONY : shaders/fast
+
+#=============================================================================
 # Target rules for targets named GLEW
 
 # Build rule for target.
@@ -145,6 +158,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... bin_main"
+	@echo "... shaders"
 	@echo "... GLEW"
 .PHONY : help
 

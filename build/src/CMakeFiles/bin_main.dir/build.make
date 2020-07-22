@@ -81,6 +81,7 @@ src/bin_main: src/CMakeFiles/bin_main.dir/main.cpp.o
 src/bin_main: src/CMakeFiles/bin_main.dir/build.make
 src/bin_main: /usr/lib/x86_64-linux-gnu/libGL.so
 src/bin_main: src/libGLEW.a
+src/bin_main: src/libshaders.a
 src/bin_main: src/CMakeFiles/bin_main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bin_main"
 	cd /home/yaoguang/Dev/CppDev/OpenGL_Projs/OpenGL_Learning_Project/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/bin_main.dir/link.txt --verbose=$(VERBOSE)

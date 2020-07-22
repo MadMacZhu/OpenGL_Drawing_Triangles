@@ -1,1 +1,1 @@
-/usr/bin/c++  -Wall -Wextra -O3  -rdynamic CMakeFiles/bin_main.dir/main.cpp.o  -o bin_main  /usr/lib/x86_64-linux-gnu/libGL.so -lglfw libGLEW.a 
+/usr/bin/c++  -Wall -Wextra -O3  -rdynamic CMakeFiles/bin_main.dir/main.cpp.o  -o bin_main  /usr/lib/x86_64-linux-gnu/libGL.so -lglfw libGLEW.a libshaders.a 

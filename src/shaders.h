@@ -20,6 +20,12 @@ namespace shaders{
      	"{                                      \n"
      	"   color = vec4(1.0, 0.0, 0.0, 1.0);   \n"
      	"}                                      \n";
+
+     unsigned int CompileShader(unsigned int type,
+                                       const std::string& source);
+
+     int CreateShader(const std::string& vertex_shader,
+                             const std::string& fragment_shader);
 }
 
 #endif

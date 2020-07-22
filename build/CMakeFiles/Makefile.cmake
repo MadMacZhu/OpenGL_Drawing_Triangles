@@ -51,5 +51,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "src/CMakeFiles/bin_main.dir/DependInfo.cmake"
+  "src/CMakeFiles/shaders.dir/DependInfo.cmake"
   "src/CMakeFiles/GLEW.dir/DependInfo.cmake"
   )

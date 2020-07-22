@@ -1,15 +1,9 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "shaders.h"
+#include <shaders.h>
 #include <iostream>
 #include <string>
 #include <vector>
-
-static unsigned int CompileShader(unsigned int type,
-                                  const std::string& source);
-
-static int CreateShader(const std::string& vertex_shader,
-                        const std::string& fragment_shader);
 
 int draw(const std::vector<float>& positions);
 
@@ -58,7 +52,7 @@ int draw(const std::vector<float>& positions)
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 
                           sizeof(float) * 2, 0);
 
-    unsigned int shader = CreateShader(shaders::vertex_shader, 
+    unsigned int shader = shaders::CreateShader(shaders::vertex_shader, 
                                        shaders::fragment_shader);
     glUseProgram(shader);
 
@@ -79,46 +73,4 @@ int draw(const std::vector<float>& positions)
 
     glfwTerminate();
     return 0;
-}
-
-static unsigned int CompileShader(unsigned int type,
-                                  const std::string& source){
-    unsigned int id = glCreateShader(type);
-    const char* src = source.c_str();
-    glShaderSource(id, 1, &src, nullptr);
-    glCompileShader(id);
-
-    int result;
-    glGetShaderiv(id, GL_COMPILE_STATUS, &result);
-    if(result == GL_FALSE){
-        int length;
-        glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
-        char* message = (char*)alloca(length * sizeof(char));
-        glGetShaderInfoLog(id, length, &length, message);
-        std::cout << "Failed to compile " <<
-                    (type == GL_VERTEX_SHADER ? "vertex" : "fragment")
-                  << " shader!" << std::endl;
-        std::cout << message << std::endl;
-        glDeleteShader(id);
-        return 0;
-    }
-
-    return id;
-}
-
-static int CreateShader(const std::string& vertex_shader,
-                        const std::string& fragment_shader){
-    unsigned int program = glCreateProgram();
-    unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertex_shader);
-    unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragment_shader);
-
-    glAttachShader(program, vs);
-    glAttachShader(program, fs);
-    glLinkProgram(program);
-    glValidateProgram(program);
-
-    glDeleteShader(vs);
-    glDeleteShader(fs);
-
-    return program;
 }

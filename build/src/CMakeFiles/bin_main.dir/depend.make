@@ -3,6 +3,6 @@
 
 src/CMakeFiles/bin_main.dir/main.cpp.o: ../src/GL/glew.h
 src/CMakeFiles/bin_main.dir/main.cpp.o: ../src/GLFW/glfw3.h
-src/CMakeFiles/bin_main.dir/main.cpp.o: ../src/main.cpp
 src/CMakeFiles/bin_main.dir/main.cpp.o: ../src/shaders.h
+src/CMakeFiles/bin_main.dir/main.cpp.o: ../src/main.cpp
 
