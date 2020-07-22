@@ -1,7 +1,9 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "shaders.h"
 #include <iostream>
 #include <string>
+#include <vector>
 
 static unsigned int CompileShader(unsigned int type,
                                   const std::string& source);
@@ -9,7 +11,20 @@ static unsigned int CompileShader(unsigned int type,
 static int CreateShader(const std::string& vertex_shader,
                         const std::string& fragment_shader);
 
-int main(void)
+int draw(const std::vector<float>& positions);
+
+std::vector<float> positions{
+    -0.5f, -0.5f,
+    0.0f,  0.5f,
+    0.5f, -0.5f
+};
+
+int main(){
+    int result = draw(positions);
+    return result;
+}
+
+int draw(const std::vector<float>& positions)
 {
     GLFWwindow* window;
 
@@ -32,42 +47,19 @@ int main(void)
 
     std::cout << glGetString(GL_VERSION) << std::endl;
 
-    float positions[6] = {
-        -0.5f, -0.5f,
-        0.0f,  0.5f,
-        0.5f, -0.5f
-    };
-
     unsigned int buffer;
     glGenBuffers(1, &buffer);
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
     glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), 
-                 positions, GL_STATIC_DRAW);
+                 positions.data(), GL_STATIC_DRAW);
 
     glEnableVertexAttribArray(0);
 
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 
                           sizeof(float) * 2, 0);
 
-    std::string vertex_shader = 
-        "#version 450 core\n"
-        "\n"
-        "layout(location = 0) in vec4 positions;\n"
-        "void main()\n"
-        "{\n"
-        "   gl_Position =  positions;\n"
-        "}\n";
-
-    std::string fragment_shader = 
-        "#version 450 core\n"
-        "\n"
-        "layout(location = 0) out vec4 color;\n"
-        "void main()\n"
-        "{\n"
-        "   color = vec4(1.0, 0.0, 0.0, 1.0);\n"
-        "}\n";
-
-    unsigned int shader = CreateShader(vertex_shader, fragment_shader);
+    unsigned int shader = CreateShader(shaders::vertex_shader, 
+                                       shaders::fragment_shader);
     glUseProgram(shader);
 
     /* Loop until the user closes the window */
